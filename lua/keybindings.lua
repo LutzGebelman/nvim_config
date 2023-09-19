@@ -24,12 +24,12 @@ keymap.set('v', '<S-Tab>', ":s/\\t//<CR>:nohl<CR>")
 
 -- Commenting
 
-keymap.set('v', 'm"', ':s/\\%V.\\+\\%V/"\\0"<CR>')
-keymap.set('v', 'm{', ':s/\\%V.\\+\\%V/{\\0}<CR>')
-keymap.set('v', 'm(', ':s/\\%V.\\+\\%V/(\\0)<CR>')
-keymap.set('v', 'm[', ':s/\\%V.\\+\\%V/[\\0]<CR>')
-keymap.set('v', 'm<', ':s/\\%V.\\+\\%V/<\\0><CR>')
-keymap.set('v', "m'", ":s/\\%V.\\+\\%V/'\\0'<CR>")
+keymap.set('v', 'm"', ':s/\\%V.\\+\\%V/"\\0"<CR>:nohl<CR>')
+keymap.set('v', 'm{', ':s/\\%V.\\+\\%V/{\\0}<CR>:nohl<CR>')
+keymap.set('v', 'm(', ':s/\\%V.\\+\\%V/(\\0)<CR>:nohl<CR>')
+keymap.set('v', 'm[', ':s/\\%V.\\+\\%V/[\\0]<CR>:nohl<CR>')
+keymap.set('v', 'm<', ':s/\\%V.\\+\\%V/<\\0><CR>:nohl<CR>')
+keymap.set('v', "m'", ":s/\\%V.\\+\\%V/'\\0'<CR>:nohl<CR>")
 keymap.set('n', '<F8>', ":lua require'dap'.toggle_breakpoint()<CR>")
 keymap.set('n', '<F5>', ":lua require'dap'.continue()<CR>")
 keymap.set('n', '<F6>', function ()
