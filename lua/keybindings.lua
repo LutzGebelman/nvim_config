@@ -6,7 +6,7 @@ keymap.terminal = {
 
 opts = {
   mode = "n", -- NORMAL mode
-  -- prefix: use "<leader>f" for example for mapping everything related to finding files
+-- prefix: use "<leader>f" for example for mapping everything related to finding files
   -- the prefix is prepended to every mapping part of `mappings`
   prefix = "",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -17,8 +17,6 @@ opts = {
 }
 
 keymap.set('n', '<C-t>', ':NERDTreeToggle<CR>')
-keymap.set('n', '<C-2>', ':tabNext<CR>')
-keymap.set('n', '<C-1>', ':tabNext<CR>')
 keymap.set('v', '<Tab>', ":s/./\\t\\0/<CR>:nohl<CR>")
 keymap.set('v', '<S-Tab>', ":s/\\t//<CR>:nohl<CR>")
 
@@ -51,10 +49,19 @@ keymap.set('n', 'J', ':wincmd j<CR>')
 keymap.set('n', 'K', ':wincmd k<CR>')
 keymap.set('n', 'L', ':wincmd l<CR>')
 -- Up/down half page and start/end of a line
-keymap.set('n', '<C-j>', '<C-d>')
-keymap.set('n', '<C-k>', '<C-u>')
-keymap.set('n', '<C-h>', '<home>')
-keymap.set('n', '<C-l>', '<end>')
+keymap.set('n', '<C-j>', '<C-d>zz')
+keymap.set('n', '<C-k>', '<C-u>zz')
+-- keymap.set('n', '<C-h>', '<home>')
+-- keymap.set('n', '<C-l>', '<end>')
+
+-- tabs controll
+keymap.set('n', '<leader-e>', ':echo "fuck"')
+keymap.set('n', 'tt', ':tabnew<CR>')
+keymap.set('n', 'tq', ':tabclose<CR>')
+keymap.set('n', '<C-h>', ':tabprevious<CR>')
+keymap.set('n', '<C-l>', ':tabnext<CR>')
+keymap.set('n', 'th', ':-tabmove<CR>')
+keymap.set('n', 'tl', ':+tabmove<CR>')
 
 keymap.set('n', 'B', ":Telescope buffers<CR>")
 
@@ -63,7 +70,7 @@ keymap.set('n', 'U', '<C-r>')
 keymap.set('n', '<C-f>', ':Telescope<CR>')
 keymap.set('n', 'T', function()
     if vim.keymap.terminal.win_id == nil then
-        vim.cmd("45split")
+        vim.cmd("40split")
         vim.cmd("wincmd j")
         vim.cmd("terminal")
         keymap.terminal.win_id = vim.fn.win_getid()
@@ -73,6 +80,8 @@ keymap.set('n', 'T', function()
     end
 end)
 
+
+keymap.set('n', 'tm', ':TableModeToggle<CR>')
 keymap.set('n', 'QQ', function ()
     vim.cmd("wa")
     vim.cmd("qa")

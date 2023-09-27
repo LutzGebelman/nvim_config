@@ -10,8 +10,7 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 -- 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-vim.cmd("COQnow")
-vim.cmd("let g:coq_settings = { 'display.icons.mode': 'none'}")
+vim.cmd("let g:coq_settings = { 'display.icons.mode': 'none', 'keymap.jump_to_mark': v:null, 'keymap.bigger_preview': '<C-;>'}")
 local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -42,11 +41,10 @@ local lsp_flags = {
 lsp['pyright'].setup(coq.lsp_ensure_capabilities({
     on_attach = on_attach,
     flags = lsp_flags
-})
-)
+}))
 
 lsp['rust_analyzer'].setup(
-coq.lsp_ensure_capabilities(({
+coq.lsp_ensure_capabilities({
     on_attach = on_attach,
     flags = lsp_flags,
     -- Server-specific settings...
@@ -69,9 +67,9 @@ coq.lsp_ensure_capabilities(({
             },
         }
     }
-})))
+}))
 
-lsp.ltex.setup(coq.lsp_ensure_capabilities(({
+lsp.ltex.setup(coq.lsp_ensure_capabilities({
 
     on_attach = on_attach,
     flags = lsp_flags,
@@ -79,18 +77,17 @@ lsp.ltex.setup(coq.lsp_ensure_capabilities(({
         ltex = {
             completionEnabled = true,
             language = "en-US",
-
         }
     }
-})))
+}))
 
-lsp.clangd.setup(coq.lsp_ensure_capabilities(({
-
+lsp.ccls.setup(coq.lsp_ensure_capabilities({
     on_attach = on_attach,
     flags = lsp_flags,
-})))
+}))
 
-lsp.pyright.setup(coq.lsp_ensure_capabilities())
+
 lsp.gdscript.setup(coq.lsp_ensure_capabilities())
 lsp.cmake.setup(coq.lsp_ensure_capabilities())
 lsp.lua_ls.setup(coq.lsp_ensure_capabilities())
+vim.cmd("COQnow")
