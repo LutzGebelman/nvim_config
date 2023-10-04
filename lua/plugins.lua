@@ -31,10 +31,6 @@ plugins = {
         dependencies = 'kyazdani42/nvim-web-devicons'
     },
     'hrsh7th/vim-vsnip',
-    -- {
-    --     "iamcco/markdown-preview.nvim",
-    --     run = function() vim.fn["mkdp#util#install"]() end,
-    -- },
     'mfussenegger/nvim-dap',
     'rcarriga/nvim-dap-ui',
     'nvim-treesitter/nvim-treesitter',
@@ -60,14 +56,6 @@ plugins = {
     {'numToStr/Comment.nvim', config = function()
         require('Comment').setup()
     end},
-    {
-        "iamcco/markdown-preview.nvim",
-        build = "cd app && npm install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    },
     {"ellisonleao/glow.nvim", config = true, cmd = "Glow"},
     {
         'nvim-orgmode/orgmode',
