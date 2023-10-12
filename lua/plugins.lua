@@ -13,8 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 plugins = {
 	{
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
-		-- or                            , branch = '0.1.x',
+		'nvim-telescope/telescope.nvim',
   		requires = { {'nvim-lua/plenary.nvim'} },
 	},
     'neovim/nvim-lspconfig',
@@ -100,7 +99,22 @@ plugins = {
         config = function() require('org-bullets').setup() end
 
     },
-    'dhruvasagar/vim-table-mode'
+    'dhruvasagar/vim-table-mode',
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function() require('todo-comments').setup() end
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    }
 }
 
 
