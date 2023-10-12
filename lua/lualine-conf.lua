@@ -26,7 +26,7 @@ require('lualine').setup{
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {get_host_user, 'filename'},
+    lualine_c = {{get_host_user, color = { gui = "bold" }}, 'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}
