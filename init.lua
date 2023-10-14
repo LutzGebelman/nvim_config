@@ -6,7 +6,6 @@ gop.loaded_netrwPlugin = 1
 gop.nohlsearch = false
 
 op.termguicolors = true
-
 op.number = true
 op.rnu = true
 op.updatetime = 300
@@ -15,6 +14,7 @@ op.tabstop = 4
 op.shiftwidth = 4
 op.expandtab = true
 op.termbidi = true
+op.cursorline = true
 
 require('plugins')
 require('nvim-lspconfig')
