@@ -22,9 +22,9 @@ keymap.terminal = {
 keymap.set('n', '<C-t>', ':NERDTreeToggle<CR>')
 
 -- Tabulation
-keymap.set('v', '<Tab>', ":s/./\\t\\0/<CR>:nohl<CR>") -- Add a tab to each selected line
-keymap.set('v', '<S-Tab>', ":s/\\t//<CR>:nohl<CR>") -- Remove a tab from each selected line
-
+keymap.set('v', '<Tab>', ":s/./\\ \\ \\ \\ \\0/<CR>:nohl<CR>") -- Add a tab to each selected line
+keymap.set('v', '<S-Tab>', ":s/\\ \\{4\\}//<CR>:nohl<CR>") -- Remove a tab from each selected line
+            
 -- NOTE: I have no use for this for now
 -- keymap.set('n', '<F8>', ":lua require'dap'.toggle_breakpoint()<CR>")
 -- keymap.set('n', '<F5>', ":lua require'dap'.continue()<CR>")
