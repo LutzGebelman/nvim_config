@@ -48,25 +48,6 @@ coq.lsp_ensure_capabilities({
     on_attach = on_attach,
     flags = lsp_flags,
     -- Server-specific settings...
-    settings = {
-        ["rust-analyzer"] = {
-
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            cargo = {
-                buildScripts = {
-                    enable = true,
-                },
-            },
-            procMacro = {
-                enable = true
-            },
-        }
-    }
 }))
 
 lsp.ltex.setup(coq.lsp_ensure_capabilities({
@@ -86,6 +67,10 @@ lsp.ccls.setup(coq.lsp_ensure_capabilities({
     flags = lsp_flags,
 }))
 
+lsp.gopls.setup(coq.lsp_ensure_capabilities({
+    on_attach = on_attach,
+    flags = lsp_flags
+}))
 
 lsp.gdscript.setup(coq.lsp_ensure_capabilities())
 lsp.cmake.setup(coq.lsp_ensure_capabilities())
