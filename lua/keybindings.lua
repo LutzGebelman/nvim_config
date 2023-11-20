@@ -47,20 +47,22 @@ keymap.set({'n', 'v'}, 'DD', "\"_dd") -- Shortcut to delete line without copy
 
 -- Movement
 -- Window Navigation
-keymap.set('n', 'H', ':wincmd h<CR>')
-keymap.set('n', 'J', ':wincmd j<CR>')
-keymap.set('n', 'K', ':wincmd k<CR>')
-keymap.set('n', 'L', ':wincmd l<CR>')
+keymap.set('n', '<C-h>', ':wincmd h<CR>')
+keymap.set('n', '<C-j>', ':wincmd j<CR>')
+keymap.set('n', '<C-k>', ':wincmd k<CR>')
+keymap.set('n', '<C-l>', ':wincmd l<CR>')
 
 -- Up/down half page
-keymap.set('n', '<C-j>', '<C-d>zz')
-keymap.set('n', '<C-k>', '<C-u>zz')
+keymap.set('n', 'J', '<C-d>zz')
+keymap.set('n', 'K', '<C-u>zz')
+keymap.set('n', 'H', '<home>')
+keymap.set('n', 'L', '<end>')
 
 -- tabs controll
 keymap.set('n', 'tt', ':tabnew<CR>')
 keymap.set('n', 'tq', ':tabclose<CR>')
-keymap.set('n', '<C-h>', ':tabprevious<CR>')
-keymap.set('n', '<C-l>', ':tabnext<CR>')
+keymap.set('n', 'th', ':tabprevious<CR>')
+keymap.set('n', 'tl', ':tabnext<CR>')
 keymap.set('n', 'th', ':-tabmove<CR>')
 keymap.set('n', 'tl', ':+tabmove<CR>')
 
