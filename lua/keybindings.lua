@@ -35,7 +35,7 @@ keymap.set('v', '<S-Tab>', ":s/\\ \\{4\\}//<CR>:nohl<CR>") -- Remove a tab from 
 -- keymap.set('n', '<F11>', ":lua require'dap'.step_into()<CR>")
 -- keymap.set('n', 'd-o', ":lua require'dap'.repl.open()<CR>")
 
-keymap.set('n', '<esc>', ":sil nohl<CR>") -- Dismiss the highlight 
+keymap.set('n', '<esc>', ':sil nohl<CR>') -- Dismiss the highlight 
 keymap.set('t', '<esc>', "<C-\\><C-n>") -- Exit terminal input on ESC
 
 -- Buffers
@@ -69,18 +69,20 @@ keymap.set('n', 'U', '<C-r>')
 
 -- Telescope bindings
 keymap.set('n', '<C-f>', ':Telescope<CR>')
-keymap.set('n', 'B', ":Telescope buffers<CR>")
+keymap.set('n', '<C-b>', ':Telescope buffers<CR>')
 
 -- Open new window with a terminal
 keymap.set('n', 'T', function()
-    if vim.keymap.terminal.win_id == nil then
+    if vim.keymap.terminal.bid == nil then
         vim.cmd("40split")
         vim.cmd("wincmd j")
         vim.cmd("terminal")
-        keymap.terminal.win_id = vim.fn.win_getid()
+        keymap.terminal.bid = vim.fn.bufnr()
     else
-        vim.cmd("clo " .. keymap.terminal.win_id)
-        keymap.terminal.win_id = nil
+        if vim.fn.bufexists(keymap.terminal.bid) then
+            vim.cmd("bd! " .. keymap.terminal.bid)
+        end
+        keymap.terminal.bid = nil
     end
 end)
 
