@@ -4,7 +4,6 @@ local gop = vim.g
 gop.loaded_netrw = 1
 gop.loaded_netrwPlugin = 1
 gop.nohlsearch = false
-
 op.termguicolors = true
 op.number = true
 op.rnu = true
