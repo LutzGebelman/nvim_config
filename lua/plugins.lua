@@ -16,6 +16,22 @@ plugins = {
 		'nvim-telescope/telescope.nvim',
   		requires = { {'nvim-lua/plenary.nvim'} },
 	},
+    {
+        'williamboman/nvim-lsp-installer',
+        config = function()
+            require("nvim-lsp-installer").setup({
+                automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+                ui = {
+                    icons = {
+                        server_installed = "✓",
+                        server_pending = "➜",
+                        server_uninstalled = "✗"
+                    }
+                }
+            })
+        end
+    },
+
     'neovim/nvim-lspconfig',
     'tanvirtin/monokai.nvim',
     'preservim/nerdtree',
@@ -115,6 +131,8 @@ plugins = {
             })
         end
     },
+    'dense-analysis/ale',
+    'CFC-Servers/gluafixer.vim'
 }
 
 
