@@ -71,8 +71,7 @@ lsp.gopls.setup(coq.lsp_ensure_capabilities({
     on_attach = on_attach,
     flags = lsp_flags
 }))
-
+lsp.lua_ls.setup(coq.lsp_ensure_capabilities())
 lsp.gdscript.setup(coq.lsp_ensure_capabilities())
 lsp.cmake.setup(coq.lsp_ensure_capabilities())
-lsp.lua_ls.setup(coq.lsp_ensure_capabilities())
 vim.cmd("COQnow")
