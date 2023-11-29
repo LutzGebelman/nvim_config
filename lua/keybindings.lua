@@ -17,6 +17,9 @@ keymap.terminal = {
 --     expr = false, -- use `expr` when creating keymaps
 -- }
 
+
+keymap.set('n', '.', ':UndotreeToggle<CR>')
+
 -- open the directory tree
 keymap.set('n', '<C-\\>', ':Oil<CR>')
 
