@@ -40,10 +40,10 @@ keymap.set('n', '<esc>', ':sil nohl<CR>') -- Dismiss the highlight
 keymap.set('t', '<esc>', '<C-\\><C-n>') -- Exit terminal input on ESC
 
 -- Buffers
-keymap.set({'n', 'v'}, 'Y', '\'+y') -- Copy to systemwide clipboard
-keymap.set({'n', 'v'}, 'YY', '\'+yy') -- Shortcut to copy line to the systemwide clipboard
-keymap.set({'n', 'v'}, 'D', '\'_d') -- Delete without copy
-keymap.set({'n', 'v'}, 'DD', '\'_dd') -- Shortcut to delete line without copy
+keymap.set({'n', 'v'}, 'Y', '"+y') -- Copy to systemwide clipboard
+keymap.set({'n', 'v'}, 'YY', '"+yy') -- Shortcut to copy line to the systemwide clipboard
+keymap.set({'n', 'v'}, 'D', '"_d') -- Delete without copy
+keymap.set({'n', 'v'}, 'DD', '"_dd') -- Shortcut to delete line without copy
 
 
 -- Movement
