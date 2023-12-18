@@ -15,6 +15,8 @@ op.shiftwidth = 4
 op.expandtab = true
 op.termbidi = true
 op.cursorline = true
+op.colorcolumn = "80"
+
 
 require('plugins')
 

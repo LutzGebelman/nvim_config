@@ -24,6 +24,8 @@ require('monokai').setup{
         diff_remove = '#4a0f23',
         diff_change = '#27406b',
         diff_text = '#23324d',
+        TabLineFill = '#282828',
+        TabLineSel = base2
     },
     custom_hlgroups = {
     },
