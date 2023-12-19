@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("io")
 local pluginlist = {}
 
-for file in io.popen("ls ~/.config/nvim/lua/plugins"):lines() do
+for file in io.popen("ls $XDG_CONFIG_HOME/nvim/lua/plugins"):lines() do
     local filename = "plugins." .. string.sub(file, 1, string.find(file, ".lua", nil, true) - 1)
     local thething = require(filename)
     if type(thething) ~= "boolean" then
