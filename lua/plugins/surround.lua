@@ -1,3 +1,4 @@
+-- Surround stuff with brackets or quotes with vim motions
 return {
     'kylechui/nvim-surround',
     version = '*', -- Use for stability; omit to use `main` branch for the latest features

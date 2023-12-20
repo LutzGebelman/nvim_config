@@ -1,3 +1,4 @@
+-- Org mode for vim. Should use this more often
 return {
     'nvim-orgmode/orgmode',
     dependencies = {
