@@ -21,7 +21,6 @@ op.colorcolumn = "80"
 require('plugins')
 
 require('nvim-lspconfig')
-require('dap-config')
 require('treesitter_config')
 require('keybindings')
 require('theme')
