@@ -7,7 +7,7 @@ keymap.set('n', '\\', '<leader>')
 keymap.set('n', '<leader>.', ':UndotreeToggle<CR>')
 
 -- open the directory tree
-keymap.set('n', '<C-\\>', ':Oil<CR>')
+keymap.set('n', '<leader><leader>', ':Oil<CR>') -- File manager
 
 -- Tabulation
 keymap.set('v', '<Tab>', ':s/./\\ \\ \\ \\ \\0/<CR>:nohl<CR>') -- Add a tab to each selected line
