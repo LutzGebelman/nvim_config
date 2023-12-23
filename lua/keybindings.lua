@@ -17,7 +17,7 @@ keymap.set('n', '<esc>', ':sil nohl<CR>') -- Dismiss the highlight
 keymap.set('t', '<esc>', '<C-\\><C-n>') -- Exit terminal input on ESC
 
 -- Buffers
-keymap.set({'n', 'v'}, 'P', '"+p') -- Paste from a system clipboard (I know about ctrl-shift-v, I just wanted more comfortable way to do it)
+keymap.set({'n', 'v'}, '<C>P', '"+p') -- Paste from a system clipboard (I know about ctrl-shift-v, I just wanted more comfortable way to do it)
 keymap.set({'n', 'v'}, 'Y', '"+y') -- Copy to systemwide clipboard
 keymap.set({'n', 'v'}, 'YY', '"+yy') -- Shortcut to copy line to the systemwide clipboard
 keymap.set({'n', 'v'}, 'D', '"_d') -- Delete without copy
@@ -48,10 +48,10 @@ keymap.set('n', 'U', '<C-r>')
 
 -- Telescope bindings
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {}) -- Find files
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {}) -- Live grep
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {}) -- Buffers
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {}) -- Help tags
 -- Open new window with a terminal
 keymap.set('n', '<leader>tt', function()
     if vim.keymap.terminal.bid == nil then
