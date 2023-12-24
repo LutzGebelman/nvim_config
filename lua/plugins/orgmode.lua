@@ -22,8 +22,8 @@ return {
 
         -- Setup orgmode
         require('orgmode').setup({
-            org_agenda_files = '~/orgfiles/**/*',
-            org_default_notes_file = '~/orgfiles/refile.org',
+            org_agenda_files = '~/notes/org-agenda/**/*',
+            org_default_notes_file = '~/notes/org-capture/ideas.org',
         })
     end,
 }
