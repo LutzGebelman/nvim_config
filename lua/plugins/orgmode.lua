@@ -24,6 +24,13 @@ return {
         require('orgmode').setup({
             org_agenda_files = '~/notes/org-agenda/**/*',
             org_default_notes_file = '~/notes/org-capture/ideas.org',
+            org_capture_templates = {
+                c = {
+                    description = 'Code snippets',
+                    template = '* %?\n',
+                    target = '~/orgfiles/snippets.org'
+                }
+            }
         })
     end,
 }
