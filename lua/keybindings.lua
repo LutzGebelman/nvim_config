@@ -3,7 +3,7 @@ keymap.terminal = {
     bid = nil
 }
 
-keymap.set('n', '\\', '<leader>')
+vim.g.mapleader = '\\'
 keymap.set('n', '<leader>.', ':UndotreeToggle<CR>')
 
 -- open the directory tree
