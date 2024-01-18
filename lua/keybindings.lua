@@ -7,21 +7,21 @@ vim.g.mapleader = '\\'
 keymap.set('n', '<leader>.', ':UndotreeToggle<CR>')
 
 -- open the directory tree
-keymap.set('n', '<leader><leader>', ':Oil<CR> " File manager')
+keymap.set('n', '<leader><leader>', ':Oil<CR>')
 -- File manager
 
 -- Tabulation
 keymap.set('v', '<Tab>', ':s/./\\ \\ \\ \\ \\0/<CR>:nohl<CR>') -- Add a tab to each selected line
 keymap.set('v', '<S-Tab>', ':s/\\ \\{4\\}//<CR>:nohl<CR>') -- Remove a tab from each selected line
 
-keymap.set('n', '<esc>', ':sil nohl<CR> " Dismiss highlight') -- Dismiss highlight 
-keymap.set('t', '<esc>', '<C-\\><C-n> " Exit terminal input on ESC') -- Exit terminal input on ESC
+keymap.set('n', '<esc>', ':sil nohl<CR>') -- Dismiss highlight 
+keymap.set('t', '<esc>', '<C-\\><C-n>') -- Exit terminal input on ESC
 
 -- Buffers
-keymap.set({'n', 'v'}, '<leader>p', '"+p " paste from a system clipboard') -- Paste from a system clipboard (I know about ctrl-shift-v, I just wanted more comfortable way to do it)
-keymap.set({'n', 'v'}, '<leader>y', '"+y " yank to system clipboard') -- Copy to systemwide clipboard
+keymap.set({'n', 'v'}, '<C-p>', '"+p') -- Paste from a system clipboard (I know about ctrl-shift-v, I just wanted more comfortable way to do it)
+keymap.set({'n', 'v'}, '<C-y>', '"+y') -- Copy to systemwide clipboard
 -- keymap.set({'n', 'v'}, '', '"+yy') -- Shortcut to copy line to the systemwide clipboard
-keymap.set({'n', 'v'}, '<leader>d', '"_d " delete without yank') -- Delete without copy
+keymap.set({'n', 'v'}, '<C-d>', '"_d') -- Delete without copy
 -- keymap.set({'n', 'v'}, 'DD', '"_dd') -- Shortcut to delete line without copy
 
 
