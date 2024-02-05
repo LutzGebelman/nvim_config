@@ -153,7 +153,7 @@ lsp.marksman.setup{
 
 lsp.typos_lsp.setup{
     capabilities = capabilities,
-    filetype = { "markdown" },
+    filetypes = { "markdown" },
     lsp.util.root_pattern(".git", ".md")
 }
 
