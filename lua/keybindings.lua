@@ -18,10 +18,10 @@ keymap.set('n', '<esc>', ':sil nohl<CR>') -- Dismiss highlight
 keymap.set('t', '<esc>', '<C-\\><C-n>') -- Exit terminal input on ESC
 
 -- Buffers
-keymap.set({'n', 'v'}, '<C-p>', '"+p') -- Paste from a system clipboard (I know about ctrl-shift-v, I just wanted more comfortable way to do it)
-keymap.set({'n', 'v'}, '<C-y>', '"+y') -- Copy to systemwide clipboard
+keymap.set({'n', 'v'}, '<leader>p', '"+p') -- Paste from a system clipboard (I know about ctrl-shift-v, I just wanted more comfortable way to do it)
+keymap.set({'n', 'v'}, '<leader>y', '"+y') -- Copy to systemwide clipboard
 -- keymap.set({'n', 'v'}, '', '"+yy') -- Shortcut to copy line to the systemwide clipboard
-keymap.set({'n', 'v'}, '<C-d>', '"_d') -- Delete without copy
+keymap.set({'n', 'v'}, '<leader>d', '"_d') -- Delete without copy
 -- keymap.set({'n', 'v'}, 'DD', '"_dd') -- Shortcut to delete line without copy
 
 
