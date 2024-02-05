@@ -147,14 +147,13 @@ lsp.rust_analyzer.setup{
     capabilities = capabilities
 }
 
-lsp.ltex.setup{
+lsp.marksman.setup{
+    capabilities = capabilities
+}
+
+lsp.typos_lsp.setup{
     capabilities = capabilities,
-    settings = {
-        ltex = {
-            completionEnabled = true,
-            language = "en-US"
-        }
-    }
+    lsp.util.root_pattern(".git", ".md")
 }
 
 lsp.clangd.setup{
