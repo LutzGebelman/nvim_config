@@ -20,8 +20,8 @@ op.colorcolumn = "80"
 
 require('plugins')
 
-require('nvim-lspconfig')
 require('treesitter-config')
 require('keybindings')
 require('theme')
 require('lualine-conf')
+require('nvim-lspconfig')
