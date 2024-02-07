@@ -1,60 +1,38 @@
+local vim = vim -- A really stupind workaround to stop lsp from screaming at me everywhere about vim not being defined
 local keymap = vim.keymap
+local wk = require("which-key")
 keymap.terminal = {
     bid = nil
 }
 
 vim.g.mapleader = '\\'
-keymap.set('n', '<leader>.', ':UndotreeToggle<CR>')
+keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', { desc = "Open undo tree" })
 
 -- open the directory tree
-keymap.set('n', '<leader><leader>', ':Oil<CR>')
 -- File manager
+keymap.set('n', '<leader><leader>', ':Oil<CR>', { desc = "File manager" })
 
--- Tabulation
-keymap.set('v', '<Tab>', ':s/./\\ \\ \\ \\ \\0/<CR>:nohl<CR>') -- Add a tab to each selected line
-keymap.set('v', '<S-Tab>', ':s/\\ \\{4\\}//<CR>:nohl<CR>') -- Remove a tab from each selected line
-
-keymap.set('n', '<esc>', ':sil nohl<CR>') -- Dismiss highlight 
-keymap.set('t', '<esc>', '<C-\\><C-n>') -- Exit terminal input on ESC
+keymap.set('n', '<esc>', ':sil nohl<CR>', { desc = "Dismiss highlight" }) -- Dismiss highlight 
+keymap.set('t', '<esc>', '<C-\\><C-n>', { desc = "Exit terminal input" }) -- Exit terminal input
 
 -- Buffers
-keymap.set({'n', 'v'}, '<C-p>', '"+p') -- Paste from a system clipboard (I know about ctrl-shift-v, I just wanted more comfortable way to do it)
-keymap.set({'n', 'v'}, '<C-y>', '"+y') -- Copy to systemwide clipboard
+keymap.set({'n', 'v'}, '<leader>p', '"+p', { desc = "Paste from the system clipboard" }) -- Paste from a system clipboard (I know about ctrl-shift-v, I just wanted more comfortable way to do it)
+keymap.set({'n', 'v'}, '<leader>y', '"+y', { desc = "Yank to the system clipboard" }) -- Copy to systemwide clipboard
 -- keymap.set({'n', 'v'}, '', '"+yy') -- Shortcut to copy line to the systemwide clipboard
-keymap.set({'n', 'v'}, '<C-d>', '"_d') -- Delete without copy
+keymap.set({'n', 'v'}, '<leader>d', '"_d', { desc = "Delete without copy" }) -- Delete without copy
 -- keymap.set({'n', 'v'}, 'DD', '"_dd') -- Shortcut to delete line without copy
 
 
--- Movement
--- Window Navigation
-keymap.set('n', '<C-h>', ':wincmd h<CR>')
-keymap.set('n', '<C-j>', ':wincmd j<CR>')
-keymap.set('n', '<C-k>', ':wincmd k<CR>')
-keymap.set('n', '<C-l>', ':wincmd l<CR>')
-
--- Up/down half page
-keymap.set({ 'n', 'v' }, 'J', '<C-d>zz')
-keymap.set({ 'n', 'v' }, 'K', '<C-u>zz')
-keymap.set({ 'n', 'v' }, 'H', '<home>')
-keymap.set({ 'n', 'v' }, 'L', '<end>')
-
--- tabs controll
--- keymap.set('n', '<leader>tt', ':tabnew<CR>')
--- keymap.set('n', '<leader>tq', ':tabclose<CR>')
--- keymap.set('n', '<leader>th', ':tabprevious<CR>')
--- keymap.set('n', '<leader>tl', ':tabnext<CR>')
-
--- Map undo to U
-keymap.set('n', 'U', '<C-r>')
-
 -- Telescope bindings
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {}) -- Find files
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {}) -- Live grep
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {}) -- Buffers
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {}) -- Help tags
+vim.keymap.set('n', '<leader>f', '', { desc = "Telescope" }) -- Find files
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files" }) -- Find files
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Live grep" }) -- Live grep
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Buffers" }) -- Buffers
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Help tags" }) -- Help tags
+
 -- Open new window with a terminal
-keymap.set('n', '<leader>tt', function()
+keymap.set('n', '<leader>t', function()
     if vim.keymap.terminal.bid == nil then
         vim.cmd('40split')
         vim.cmd('wincmd j')
@@ -66,13 +44,11 @@ keymap.set('n', '<leader>tt', function()
         end
         keymap.terminal.bid = nil
     end
-end)
+end, { desc = "Open terminal on the bottom" })
 
--- Enable table mode
-keymap.set('n', '<leader>tm', ':TableModeToggle<CR>')
 
--- Save all tabs and quit
-keymap.set('n', 'QQ', function ()
-    vim.cmd('wa')
-    vim.cmd('qa')
-end)
+wk.register(
+    {
+        ["<leader>f"] = {name = "Telescope"}
+    }
+)
