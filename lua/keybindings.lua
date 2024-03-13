@@ -55,6 +55,8 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Help tags" }) -- 
 -- Open new window with a terminal
 keymap.set('n', '<leader>t', function() keymap.terminal.handle_term() end, { desc = "Open terminal on the bottom" })
 
+-- Run make on a key (no shit)
+keymap.set('n', '<leader>r', ':!make<CR>', { desc = "Run make" })
 
 wk.register(
     {
