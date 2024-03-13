@@ -68,8 +68,13 @@ keymap.set('n', '<leader>tt', function()
     end
 end)
 
+<<<<<<< HEAD
 -- Enable table mode
 keymap.set('n', '<leader>tm', ':TableModeToggle<CR>')
+=======
+-- Run make on a key (no shit)
+keymap.set('n', '<leader>r', ':!make<CR>', { desc = "Run make" })
+>>>>>>> 659b451 (Added tools for building)
 
 -- Save all tabs and quit
 keymap.set('n', 'QQ', function ()
