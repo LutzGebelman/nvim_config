@@ -1,14 +1,17 @@
 local function get_host_user()
     return vim.fn.getenv("USER") .. "@" .. vim.fn.hostname()
 end
-
-get_host_user()
+function getfilestatus()
+    if vim.bo.readonly then return { fg = 'black', bg = 'red' } end
+    if vim.bo.modified then return { fg = 'orange', bg = '#272727' } end
+    return { fg = 'White', bg = '#272727' }
+end
 
 require('lualine').setup{
     options = {
     icons_enabled = true,
     theme = 'auto',
-    component_separators = { left = '|', right = '|'},
+    component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
       statusline = {},
@@ -24,9 +27,9 @@ require('lualine').setup{
     }
   },
   sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {{get_host_user, color = { gui = 'bold' }}, 'filename'},
+    lualine_a = {'mode', { 'filename', color = getfilestatus}, { 'diagnostics', color = {bg='#272727'}}},
+    lualine_b = {},
+    lualine_c = {get_host_user, 'branch', 'diff'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'location'}

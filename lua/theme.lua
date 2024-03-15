@@ -1,4 +1,4 @@
-require('monokai').setup{
+vim.g.thecustomcolors = {
     palette = {
         name = 'monokai',
         base1 = '#272a30',
@@ -25,8 +25,12 @@ require('monokai').setup{
         diff_change = '#27406b',
         diff_text = '#23324d',
         TabLineFill = '#282828',
-        TabLineSel = base2
+        TabLineSel = '#181818'
     },
     custom_hlgroups = {
     },
+}
+
+require('monokai').setup{
+    palette = vim.g.thecustomcolors.palette
 }
