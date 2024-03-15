@@ -20,7 +20,6 @@ op.colorcolumn = "80"
 
 require('plugins')
 
-require('treesitter-config')
 require('keybindings')
 require('theme')
 require('lualine-conf')
